@@ -8,7 +8,7 @@ class Perceptron:
         self.weights = None
         self.bias = None
 
-     '''
+    '''
     The step function is challenging for gradient-based optimization (like backpropagation) since:
 
     Its derivative is zero almost everywhere, so it doesn't provide useful gradient information.
@@ -74,9 +74,4 @@ class Perceptron:
         linear_output = np.dot(X, self.weights) + self.bias
         y_predicted = self._activate(linear_output)
         return np.where(y_predicted >= 0.5, 1, 0)  # Threshold for binary classification
-
-# Example usage:
-# perceptron = Perceptron(learning_rate=0.01, n_iterations=1000, activation='sigmoid')
-# perceptron.fit(features, labels)
-# predictions = perceptron.predict(features)
 

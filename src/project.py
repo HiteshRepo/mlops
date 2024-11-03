@@ -5,6 +5,7 @@ from sklearn.model_selection import train_test_split
 
 from dataset.titanic import get_titanic_data, transform_titanic_data
 from models.perceptron.network import input_layer
+from models.perceptron.model import Perceptron
 
 ## Fetch dataset
 titanic_data_config = get_titanic_data()
@@ -33,3 +34,9 @@ X_train, X_test, Y_train, Y_test = train_test_split(features, labels, test_size=
 
 print('Training records:',Y_train.size)
 print('Test records:',Y_test.size)
+
+## train Perceptron model to train the data
+perceptron = Perceptron(learning_rate=0.01, n_iterations=1000, activation='sigmoid')
+perceptron.fit(features, labels)
+predictions = perceptron.predict(features)
+print('Predictions:', predictions)
